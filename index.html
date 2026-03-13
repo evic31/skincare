@@ -1,37 +1,44 @@
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skincare Rutina Definitiva</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-.root { max-width: 540px; margin: 0 auto; padding: 1rem 0 2rem; font-family: var(--font-sans); }
-.label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: 4px; }
-.title { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px; }
-.note { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; margin-bottom: 16px; }
-.week-toggle { display: flex; gap: 0; margin-bottom: 16px; border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); overflow: hidden; }
-.wtab { flex: 1; padding: 9px; text-align: center; font-size: 13px; font-weight: 500; cursor: pointer; background: transparent; border: none; color: var(--color-text-secondary); font-family: var(--font-sans); transition: all 0.15s; }
-.wtab.active { background: var(--color-text-primary); color: var(--color-background-primary); }
+body { background: #f5f5f3; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a1a; }
+.root { max-width: 540px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+.label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #888; margin-bottom: 4px; }
+.title { font-size: 24px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+.note { font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 16px; }
+.week-toggle { display: flex; gap: 0; margin-bottom: 16px; border: 1px solid #ccc; border-radius: 8px; overflow: hidden; }
+.wtab { flex: 1; padding: 9px; text-align: center; font-size: 13px; font-weight: 500; cursor: pointer; background: transparent; border: none; color: #666; font-family: inherit; transition: all 0.15s; }
+.wtab.active { background: #1a1a1a; color: #fff; }
 .days { display: flex; flex-direction: column; gap: 8px; }
-.day-row { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; }
-.day-header { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: var(--color-background-secondary); border-bottom: 0.5px solid var(--color-border-tertiary); }
-.day-name { font-size: 14px; font-weight: 500; color: var(--color-text-primary); min-width: 80px; }
-.day-badge { font-size: 11px; padding: 3px 8px; border-radius: 20px; border: 0.5px solid; font-weight: 500; }
-.badge-work { background: var(--color-background-warning); color: var(--color-text-warning); border-color: var(--color-border-warning); }
-.badge-off { background: var(--color-background-success); color: var(--color-text-success); border-color: var(--color-border-success); }
+.day-row { border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden; background: #fff; }
+.day-header { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #f9f9f7; border-bottom: 1px solid #e0e0e0; }
+.day-name { font-size: 14px; font-weight: 600; color: #1a1a1a; min-width: 80px; }
+.day-badge { font-size: 11px; padding: 3px 8px; border-radius: 20px; border: 1px solid; font-weight: 500; }
+.badge-work { background: #fff8e1; color: #8a6d00; border-color: #f0c040; }
+.badge-off { background: #e8f5e9; color: #2e7d32; border-color: #81c784; }
 .routines { display: flex; gap: 8px; padding: 10px 12px; flex-wrap: wrap; }
-.routine-block { flex: 1; min-width: 140px; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 10px 12px; background: var(--color-background-primary); }
-.rb-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: 4px; }
-.rb-time { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); margin-bottom: 8px; padding-bottom: 6px; border-bottom: 0.5px solid var(--color-border-tertiary); }
-.rb-step { font-size: 12px; color: var(--color-text-secondary); padding: 3px 0; border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; align-items: center; gap: 6px; }
+.routine-block { flex: 1; min-width: 140px; border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px 12px; background: #fff; }
+.rb-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #999; margin-bottom: 4px; }
+.rb-time { font-size: 12px; font-weight: 600; color: #666; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid #eee; }
+.rb-step { font-size: 12px; color: #555; padding: 3px 0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; gap: 6px; }
 .rb-step:last-child { border-bottom: none; }
 .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .active-tag { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 10px; font-weight: 500; margin-left: 2px; }
 .tag-retinol { background: #fffbe0; color: #7a6000; }
 .tag-bha { background: #eef1f3; color: #4a5568; }
-.tag-safe { background: var(--color-background-success); color: var(--color-text-success); }
+.tag-safe { background: #e8f5e9; color: #2e7d32; }
 .work-only { padding: 10px 12px; }
-.safe-block { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 10px 12px; background: var(--color-background-primary); }
-.safe-note { font-size: 11px; color: var(--color-text-tertiary); font-style: italic; margin-top: 8px; }
-.info-box { margin-top: 12px; padding: 12px 14px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-info); background: var(--color-background-info); font-size: 12px; color: var(--color-text-info); line-height: 1.6; }
+.safe-block { border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px 12px; background: #fff; }
+.safe-note { font-size: 11px; color: #aaa; font-style: italic; margin-top: 8px; }
+.info-box { margin-top: 12px; padding: 12px 14px; border-radius: 8px; border: 1px solid #90caf9; background: #e3f2fd; font-size: 12px; color: #1565c0; line-height: 1.6; }
 </style>
-
+</head>
+<body>
 <div class="root">
   <div class="label">Turno de noche · Patrón 5–2</div>
   <div class="title">Tu rutina definitiva</div>
@@ -45,12 +52,8 @@
   <!-- SEMANA A -->
   <div id="week-a" class="days">
 
-    <!-- LUNES trabajo -->
     <div class="day-row">
-      <div class="day-header">
-        <span class="day-name">Lunes</span>
-        <span class="day-badge badge-work">Turno noche</span>
-      </div>
+      <div class="day-header"><span class="day-name">Lunes</span><span class="day-badge badge-work">Turno noche</span></div>
       <div class="work-only">
         <div class="safe-block">
           <div class="rb-label">Al despertar · Rutina segura todo el día</div>
@@ -64,12 +67,8 @@
       </div>
     </div>
 
-    <!-- MARTES trabajo -->
     <div class="day-row">
-      <div class="day-header">
-        <span class="day-name">Martes</span>
-        <span class="day-badge badge-work">Turno noche</span>
-      </div>
+      <div class="day-header"><span class="day-name">Martes</span><span class="day-badge badge-work">Turno noche</span></div>
       <div class="work-only">
         <div class="safe-block">
           <div class="rb-label">Al despertar · Rutina segura todo el día</div>
@@ -83,12 +82,8 @@
       </div>
     </div>
 
-    <!-- MIERCOLES-JUEVES libres -->
     <div class="day-row">
-      <div class="day-header">
-        <span class="day-name">Miérc–Juev</span>
-        <span class="day-badge badge-off">Días libres</span>
-      </div>
+      <div class="day-header"><span class="day-name">Miérc–Juev</span><span class="day-badge badge-off">Días libres</span></div>
       <div class="routines">
         <div class="routine-block">
           <div class="rb-label">Al despertar</div>
@@ -111,12 +106,8 @@
       </div>
     </div>
 
-    <!-- VIERNES trabajo -->
     <div class="day-row">
-      <div class="day-header">
-        <span class="day-name">Viernes</span>
-        <span class="day-badge badge-work">Turno noche</span>
-      </div>
+      <div class="day-header"><span class="day-name">Viernes</span><span class="day-badge badge-work">Turno noche</span></div>
       <div class="work-only">
         <div class="safe-block">
           <div class="rb-label">Al despertar · Rutina segura todo el día</div>
@@ -130,12 +121,8 @@
       </div>
     </div>
 
-    <!-- SABADO trabajo -->
     <div class="day-row">
-      <div class="day-header">
-        <span class="day-name">Sábado</span>
-        <span class="day-badge badge-work">Turno noche</span>
-      </div>
+      <div class="day-header"><span class="day-name">Sábado</span><span class="day-badge badge-work">Turno noche</span></div>
       <div class="work-only">
         <div class="safe-block">
           <div class="rb-label">Al despertar · Rutina segura todo el día</div>
@@ -149,12 +136,8 @@
       </div>
     </div>
 
-    <!-- DOMINGO trabajo -->
     <div class="day-row">
-      <div class="day-header">
-        <span class="day-name">Domingo</span>
-        <span class="day-badge badge-work">Turno noche</span>
-      </div>
+      <div class="day-header"><span class="day-name">Domingo</span><span class="day-badge badge-work">Turno noche</span></div>
       <div class="work-only">
         <div class="safe-block">
           <div class="rb-label">Al despertar · Rutina segura todo el día</div>
@@ -173,12 +156,8 @@
   <!-- SEMANA B -->
   <div id="week-b" class="days" style="display:none">
 
-    <!-- LUNES libre -->
     <div class="day-row">
-      <div class="day-header">
-        <span class="day-name">Lunes</span>
-        <span class="day-badge badge-off">Día libre</span>
-      </div>
+      <div class="day-header"><span class="day-name">Lunes</span><span class="day-badge badge-off">Día libre</span></div>
       <div class="routines">
         <div class="routine-block">
           <div class="rb-label">Al despertar</div>
@@ -200,12 +179,8 @@
       </div>
     </div>
 
-    <!-- MARTES libre -->
     <div class="day-row">
-      <div class="day-header">
-        <span class="day-name">Martes</span>
-        <span class="day-badge badge-off">Día libre</span>
-      </div>
+      <div class="day-header"><span class="day-name">Martes</span><span class="day-badge badge-off">Día libre</span></div>
       <div class="routines">
         <div class="routine-block">
           <div class="rb-label">Al despertar</div>
@@ -228,12 +203,8 @@
       </div>
     </div>
 
-    <!-- MIERCOLES trabajo -->
     <div class="day-row">
-      <div class="day-header">
-        <span class="day-name">Miércoles</span>
-        <span class="day-badge badge-work">Turno noche</span>
-      </div>
+      <div class="day-header"><span class="day-name">Miércoles</span><span class="day-badge badge-work">Turno noche</span></div>
       <div class="work-only">
         <div class="safe-block">
           <div class="rb-label">Al despertar · Rutina segura todo el día</div>
@@ -247,12 +218,8 @@
       </div>
     </div>
 
-    <!-- JUEVES trabajo -->
     <div class="day-row">
-      <div class="day-header">
-        <span class="day-name">Jueves</span>
-        <span class="day-badge badge-work">Turno noche</span>
-      </div>
+      <div class="day-header"><span class="day-name">Jueves</span><span class="day-badge badge-work">Turno noche</span></div>
       <div class="work-only">
         <div class="safe-block">
           <div class="rb-label">Al despertar · Rutina segura todo el día</div>
@@ -266,12 +233,8 @@
       </div>
     </div>
 
-    <!-- VIERNES libre -->
     <div class="day-row">
-      <div class="day-header">
-        <span class="day-name">Viernes</span>
-        <span class="day-badge badge-off">Día libre</span>
-      </div>
+      <div class="day-header"><span class="day-name">Viernes</span><span class="day-badge badge-off">Día libre</span></div>
       <div class="routines">
         <div class="routine-block">
           <div class="rb-label">Al despertar</div>
@@ -293,12 +256,8 @@
       </div>
     </div>
 
-    <!-- SABADO libre -->
     <div class="day-row">
-      <div class="day-header">
-        <span class="day-name">Sábado</span>
-        <span class="day-badge badge-off">Día libre</span>
-      </div>
+      <div class="day-header"><span class="day-name">Sábado</span><span class="day-badge badge-off">Día libre</span></div>
       <div class="routines">
         <div class="routine-block">
           <div class="rb-label">Al despertar</div>
@@ -321,12 +280,8 @@
       </div>
     </div>
 
-    <!-- DOMINGO libre -->
     <div class="day-row">
-      <div class="day-header">
-        <span class="day-name">Domingo</span>
-        <span class="day-badge badge-off">Día libre</span>
-      </div>
+      <div class="day-header"><span class="day-name">Domingo</span><span class="day-badge badge-off">Día libre</span></div>
       <div class="routines">
         <div class="routine-block">
           <div class="rb-label">Al despertar</div>
@@ -343,7 +298,7 @@
           <div class="rb-step"><span class="dot" style="background:#5ecfbf"></span>Limpiador</div>
           <div class="rb-step"><span class="dot" style="background:#a8e063"></span>Solo crema glow</div>
           <div class="rb-step"><span class="dot" style="background:#f48fb1"></span>Contorno ojos</div>
-          <div class="rb-step" style="font-style:italic;color:var(--color-text-tertiary)"><span class="dot" style="background:transparent;border:0.5px solid var(--color-border-tertiary)"></span>Noche de descanso</div>
+          <div class="rb-step" style="font-style:italic;color:#aaa"><span class="dot" style="background:transparent;border:1px solid #ddd"></span>Noche de descanso</div>
         </div>
       </div>
     </div>
@@ -361,3 +316,5 @@ function showWeek(w, btn) {
   btn.classList.add('active');
 }
 </script>
+</body>
+</html>
